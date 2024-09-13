@@ -3,18 +3,21 @@ import math
 import random
 
 
-def make_pyramids(y,z):
-    '''y = number of towers and shape of polygons
-    z = number of shapes per tower'''
+def make_pyramids(x=math.sqrt(50),y=3,z=40,fill=False):
+    '''
+    x = distance per shape on tower
+    y = number of towers and shape of polygons
+    z = number of shapes per tower
+    fill = boolean that chooses whether or not to fill in the shapes'''
     def make_pyramid(n, painter):
-        painter.speed(0)
+        painter.speed(0) #so its not too slow
         
         for i in range (z):
+            #moving for next shape
             painter.left(45)
-            x = math.sqrt(50)
             painter.right(45)
             painter.forward(x)
-            colors = [
+            colors = [ #color list
         "#FF5733", "#33FF57", "#3357FF", "#FFFF33", "#FF33FF", "#33FFFF",
         "#FF6347", "#4682B4", "#00FF00", "#FF00FF", "#00FFFF", "#FF4500",
         "#32CD32", "#FFD700", "#FF1493", "#1E90FF", "#00BFFF", "#FF8C00",
@@ -34,24 +37,32 @@ def make_pyramids(y,z):
         "#8B008B", "#FF4500", "#C71585", "#FF6347", "#FF4500", "#2E8B57",
         "#8A2BE2", "#B22222", "#D2691E", "#FFB6C1", "#8B4513", "#DAA520"
     ]
-
+            #chooses random color for the turtle
             kolor = random.choice(colors)
             painter.color(kolor)
+            #if the parameters ask to fill the shape...
+            if fill:
+                painter.begin_fill()
+            #uses for loop to draw that shape
             for j in range(y):
                 painter.forward((i+1)*10)
                 painter.right(360/y)
+            #if parameters ask to fill the shape...
+            if fill:
+                painter.end_fill()
         painter.color("black")
         painter.penup()
+        #end of pyramid
         painter.goto(0,0)
         painter.pendown()
 
-    painter = turtle.Turtle()
-
+    #setup for multiple pyramids
     for i in range(y):
+        painter = turtle.Turtle()
         make_pyramid(50, painter)
         painter.left(360/y)
 
 
-make_pyramids(4,30)
+make_pyramids(1,4,50, False) #example setup - result will be in separate file
 wn = turtle.Screen()
 wn.mainloop()
