@@ -39,7 +39,10 @@ Use the forward() and right() methods to draw the sides of the squares.
 5. Answer to step 21
    **This algorithm creates an infinite loop of drawing circles.  It sets a variable answer as 'y', and makes a while loop that operates while the value of answer is 'y'.  In each iteration of the loop, the turtle creates a circle after moving up and right.  However, since the variable answer never changes, the loop is infinite.**
 7. Insert a screenshot or picture of the algorithm you used for your tokenizer on the previous activity.
-8. Give an example of an undecidable problem, attach code.
+   ![image](https://github.com/user-attachments/assets/fed24559-c6e4-48bf-b834-d8e82bb17410)
+
+9. Give an example of an undecidable problem, attach code.
+    **It's undecidable for a reason... (assuming this is a trick question, if not please let me know what I can do to answer it)**
    
 
 
